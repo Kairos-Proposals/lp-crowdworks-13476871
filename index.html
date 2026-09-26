@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos ご提案 ｜ ぞのタウン様 財務コンサルティングサイト制作</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0F1E33;
+    --navy-mid:#182C46;
+    --slate:#4A6785;
+    --gold:#C9A961;
+    --gold-light:#E4D4A8;
+    --paper:#F5F4F1;
+    --paper-dim:#EAE7DF;
+    --line:#33456099;
+    --ink:#1B2431;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Noto Sans JP', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.85;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Shippori Mincho', serif;
+    font-weight:600;
+    letter-spacing:0.04em;
+  }
+
+  a{text-decoration:none;color:inherit;}
+
+  .container{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse at 80% -10%, rgba(201,169,97,0.18), transparent 55%),
+      linear-gradient(160deg, var(--navy-deep) 0%, var(--navy-mid) 60%, #10203A 100%);
+    color:var(--paper);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:120px 0 90px;
+    overflow:hidden;
+  }
+
+  .grid-bg{
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(rgba(201,169,97,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,169,97,0.06) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image:linear-gradient(to bottom, transparent, black 15%, black 70%, transparent);
+    pointer-events:none;
+  }
+
+  .hero-graph{
+    position:absolute;
+    right:-6%;
+    bottom:0;
+    width:75%;
+    max-width:820px;
+    opacity:0.9;
+    pointer-events:none;
+  }
+
+  .hero-inner{
+    position:relative;
+    z-index:2;
+  }
+
+  .kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    font-size:12px;
+    letter-spacing:0.28em;
+    color:var(--gold-light);
+    border:1px solid rgba(201,169,97,0.4);
+    padding:8px 18px;
+    border-radius:2px;
+    margin-bottom:36px;
+  }
+
+  .kicker::before{
+    content:"";
+    width:6px;height:6px;
+    background:var(--gold);
+    display:inline-block;
+    border-radius:50%;
+  }
+
+  .hero h1{
+    font-size:clamp(32px, 5vw, 56px);
+    line-height:1.55;
+    max-width:760px;
+    margin-bottom:28px;
+    color:#F7F5EF;
+  }
+
+  .hero h1 span{
+    color:var(--gold);
+  }
+
+  .hero p.lead{
+    max-width:560px;
+    font-size:15px;
+    color:#C7D0DE;
+    font-weight:300;
+    margin-bottom:44px;
+  }
+
+  .hero-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+
+  .hero-tags span{
+    font-size:12.5px;
+    letter-spacing:0.05em;
+    padding:9px 16px;
+    border:1px solid rgba(255,255,255,0.18);
+    color:#DCE2EA;
+    border-radius:2px;
+    background:rgba(255,255,255,0.03);
+  }
+
+  /* ---------- SECTION COMMON ---------- */
+  section{
+    padding:110px 0;
+    position:relative;
+  }
+
+  .section-label{
+    font-size:12px;
+    letter-spacing:0.3em;
+    color:var(--slate);
+    margin-bottom:18px;
+    font-weight:500;
+  }
+
+  .section-title{
+    font-size:clamp(26px, 3.4vw, 38px);
+    margin-bottom:20px;
+    color:var(--navy-deep);
+  }
+
+  .section-desc{
+    max-width:640px;
+    color:#4B5261;
+    font-size:15.5px;
+    margin-bottom:60px;
+  }
+
+  /* ---------- UNDERSTANDING ---------- */
+  .understanding{
+    background:var(--paper);
+  }
+
+  .u-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:start;
+  }
+
+  .u-quote{
+    border-left:2px solid var(--gold);
+    padding:8px 0 8px 28px;
+  }
+
+  .u-quote p{
+    font-family:'Shippori Mincho', serif;
+    font-size:19px;
+    color:var(--navy-deep);
+    line-height:2;
+  }
+
+  .u-list{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+
+  .u-item{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+  }
+
+  .u-num{
+    font-family:'Shippori Mincho', serif;
+    font-size:13px;
+    color:var(--gold);
+    border:1px solid var(--gold);
+    width:30px;height:30px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+
+  .u-item p{
+    font-size:14.5px;
+    color:#41485A;
+  }
+
+  .u-item strong{
+    display:block;
+    font-family:'Shippori Mincho', serif;
+    font-weight:600;
+    font-size:15.5px;
+    color:var(--navy-deep);
+    margin-bottom:4px;
+  }
+
+  /* ---------- VALUE CARDS ---------- */
+  .value{
+    background:var(--navy-deep);
+    color:var(--paper);
+  }
+
+  .value .section-label{color:var(--gold-light);}
+  .value .section-title{color:#F7F5EF;}
+  .value .section-desc{color:#B9C2D2;}
+
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.08);
+  }
+
+  .card{
+    background:var(--navy-deep);
+    padding:44px 32px;
+    position:relative;
+    transition:background 0.3s ease;
+  }
+
+  .card:hover{
+    background:var(--navy-mid);
+  }
+
+  .card .mark{
+    font-family:'Shippori Mincho', serif;
+    font-size:30px;
+    color:var(--gold);
+    margin-bottom:22px;
+    display:block;
+  }
+
+  .card h3{
+    font-size:17px;
+    color:#F1EFE8;
+    margin-bottom:14px;
+  }
+
+  .card p{
+    font-size:13.5px;
+    color:#A9B4C6;
+    font-weight:300;
+    line-height:1.9;
+  }
+
+  /* ---------- SCHEDULE ---------- */
+  .schedule{
+    background:var(--paper-dim);
+  }
+
+  .timeline{
+    position:relative;
+    max-width:760px;
+    margin-top:20px;
+  }
+
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:19px;
+    top:8px;
+    bottom:8px;
+    width:1px;
+    background:linear-gradient(to bottom, var(--gold), var(--slate));
+  }
+
+  .t-item{
+    position:relative;
+    padding-left:60px;
+    margin-bottom:48px;
+  }
+
+  .t-item:last-child{margin-bottom:0;}
+
+  .t-dot{
+    position:absolute;
+    left:10px;
+    top:4px;
+    width:20px;height:20px;
+    border-radius:50%;
+    background:var(--paper-dim);
+    border:2px solid var(--gold);
+  }
+
+  .t-item .t-day{
+    font-size:12px;
+    letter-spacing:0.15em;
+    color:var(--slate);
+    margin-bottom:6px;
+    display:block;
+  }
+
+  .t-item h4{
+    font-size:18px;
+    color:var(--navy-deep);
+    margin-bottom:8px;
+  }
+
+  .t-item p{
+    font-size:14px;
+    color:#4B5261;
+    max-width:520px;
+  }
+
+  /* ---------- CLOSING ---------- */
+  .closing{
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(201,169,97,0.15), transparent 50%),
+      var(--navy-deep);
+    color:var(--paper);
+    text-align:center;
+    padding:130px 0 110px;
+  }
+
+  .closing .section-label{
+    color:var(--gold-light);
+    letter-spacing:0.3em;
+  }
+
+  .closing h2{
+    font-size:clamp(26px, 4vw, 40px);
+    color:#F7F5EF;
+    max-width:680px;
+    margin:20px auto 26px;
+  }
+
+  .closing p.sub{
+    color:#B9C2D2;
+    max-width:520px;
+    margin:0 auto 48px;
+    font-size:14.5px;
+  }
+
+  .cta-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    background:var(--gold);
+    color:var(--navy-deep);
+    font-family:'Shippori Mincho', serif;
+    font-weight:600;
+    font-size:16px;
+    padding:18px 44px;
+    border-radius:2px;
+    letter-spacing:0.05em;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow:0 10px 30px rgba(201,169,97,0.2);
+  }
+
+  .cta-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 16px 36px rgba(201,169,97,0.3);
+  }
+
+  footer{
+    background:#0B1626;
+    color:#7A8598;
+    text-align:center;
+    padding:32px 0;
+    font-size:12px;
+    letter-spacing:0.08em;
+  }
+
+  footer strong{color:var(--gold-light);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    .u-grid{grid-template-columns:1fr;gap:40px;}
+    .card-grid{grid-template-columns:repeat(2, 1fr);}
+    .hero-graph{width:100%; opacity:0.35;}
+  }
+
+  @media (max-width:600px){
+    .container{padding:0 22px;}
+    section{padding:80px 0;}
+    .hero{padding:100px 0 70px; min-height:auto;}
+    .card-grid{grid-template-columns:1fr;}
+    .hero h1{line-height:1.6;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="grid-bg"></div>
+
+  <svg class="hero-graph" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.25" stroke="#C9A961" stroke-width="0.6">
+      <line x1="0" y1="60" x2="600" y2="60"/>
+      <line x1="0" y1="140" x2="600" y2="140"/>
+      <line x1="0" y1="220" x2="600" y2="220"/>
+      <line x1="0" y1="300" x2="600" y2="300"/>
+      <line x1="0" y1="380" x2="600" y2="380"/>
+    </g>
+    <polyline points="10,340 90,300 170,320 250,250 330,270 410,160 490,190 570,70"
+      fill="none" stroke="#C9A961" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="#C9A961">
+      <circle cx="10" cy="340" r="3.5"/>
+      <circle cx="170" cy="320" r="3.5"/>
+      <circle cx="330" cy="270" r="3.5"/>
+      <circle cx="490" cy="190" r="3.5"/>
+      <circle cx="570" cy="70" r="4.5"/>
+    </g>
+    <polyline points="10,360 90,340 170,350 250,300 330,320 410,240 490,260 570,150"
+      fill="none" stroke="#4A6785" stroke-width="1.4" stroke-dasharray="4 5" opacity="0.6"/>
+  </svg>
+
+  <div class="container hero-inner">
+    <div class="kicker">KAIROS からのご提案</div>
+    <h1>数字の裏側にある決断を、<br>静かな品格で<span>デザイン</span>する。</h1>
+    <p class="lead">
+      ぞのタウン様が手がける財務コンサルティングサイトの制作について、
+      Kairosよりご提案いたします。上場や会社売却という重い意思決定に向き合う経営者に、
+      派手さではなく「確かさ」を届けるサイトを、6ページ・2週間でお届けします。
+    </p>
+    <div class="hero-tags">
+      <span>財務コンサルティング HP ／ 6ページ</span>
+      <span>デザイン＋コーディング一式</span>
+      <span>予算 ¥50,000（固定）</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= UNDERSTANDING ================= -->
+<section class="understanding">
+  <div class="container">
+    <div class="section-label">01 ／ THIS PROJECT</div>
+    <h2 class="section-title">この案件について、私たちが理解していること</h2>
+    <p class="section-desc">
+      文章と構成はすでに整っている——だからこそ問われるのは、その言葉をどう「信頼」として
+      視覚化するかです。私たちはこの前提を踏まえた上でご提案します。
+    </p>
+
+    <div class="u-grid">
+      <div class="u-quote">
+        <p>
+          「大きな企業の経営陣が見ても信頼できる、落ち着いた品のあるデザイン」——
+          このご要望は、装飾を足すことではなく、余白と比率、そして文字の呼吸を
+          整えることでしか実現できないと、私たちは考えています。
+        </p>
+      </div>
+
+      <div class="u-list">
+        <div class="u-item">
+          <div class="u-num">1</div>
+          <div>
+            <strong>ターゲットは意思決定者</strong>
+            <p>上場・会社売却を検討する経営者に向けたトーン。派手な訴求ではなく、専門性と誠実さを軸に構成します。</p>
+          </div>
+        </div>
+        <div class="u-item">
+          <div class="u-num">2</div>
+          <div>
+            <strong>文章・構成は支給済み</strong>
+            <p>ご用意いただいた内容と順序を尊重し、レイアウトと視覚表現でその説得力を最大化します。</p>
+          </div>
+        </div>
+        <div class="u-item">
+          <div class="u-num">3</div>
+          <div>
+            <strong>6ページ・限られた予算と期間</strong>
+            <p>初期確認3〜4日、全納品2週間というスケジュールに対応できる、無駄のない制作フローで進行します。</p>
+          </div>
+        </div>
+        <div class="u-item">
+          <div class="u-num">4</div>
+          <div>
+            <strong>納品後の自由な運用</strong>
+            <p>Figma等の元データ・著作権譲渡を前提とし、WordPress組み込みなど後工程を担当される方にも配慮した構造で納品します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALUE ================= -->
+<section class="value">
+  <div class="container">
+    <div class="section-label">02 ／ WHAT WE OFFER</div>
+    <h2 class="section-title">Kairos がご提供できる価値</h2>
+    <p class="section-desc">
+      デザイナー単体の作業ではなく、財務・経営領域のサイト制作として
+      「信頼を設計する」視点で臨みます。
+    </p>
+
+    <div class="card-grid">
+      <div class="card">
+        <span class="mark">品</span>
+        <h3>経営層に耐える品格設計</h3>
+        <p>コンサルティング・金融領域のトーンを踏まえ、色数を抑えた落ち着いた配色と、余白を活かしたレイアウトで信頼感を構築します。</p>
+      </div>
+      <div class="card">
+        <span class="mark">構</span>
+        <h3>6ページの一貫した設計</h3>
+        <p>トップ／サービス／プロフィール／会社概要／お問い合わせ（完了画面含む）／プライバシーポリシーを、統一されたトーンで設計します。</p>
+      </div>
+      <div class="card">
+        <span class="mark">実</span>
+        <h3>軽量・堅牢なコーディング</h3>
+        <p>HTML／CSSでの実装とスマホ対応まで含め、STUDIOやWixに依存しない、後から自由に修正できるコードでお渡しします。</p>
+      </div>
+      <div class="card">
+        <span class="mark">速</span>
+        <h3>AI活用によるスピードと精度</h3>
+        <p>AIツールを制作補助として活用し、限られた予算・期間の中でも品質を落とさず、初期画面3〜4日という納期に対応します。</p>
+      </div>
+      <div class="card">
+        <span class="mark">渡</span>
+        <h3>Figma元データ＋著作権譲渡</h3>
+        <p>納品後は貴社にて自由に修正・運用いただけるよう、デザイン元データを含め、すべての権利をお渡しします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCHEDULE ================= -->
+<section class="schedule">
+  <div class="container">
+    <div class="section-label">03 ／ FLOW &amp; SCHEDULE</div>
+    <h2 class="section-title">進め方（想定2週間）</h2>
+    <p class="section-desc">
+      採用後すぐにキックオフし、初期画面の確認を早い段階で行うことで、
+      方向性のズレを防ぎながら進行します。
+    </p>
+
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <span class="t-day">DAY 1</span>
+        <h4>キックオフ・素材確認</h4>
+        <p>文章・構成・人物写真をお預かりし、トンマナ（色・書体・雰囲気）の方向性をすり合わせます。</p>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <span class="t-day">DAY 3〜4</span>
+        <h4>トップページ初稿のご提示</h4>
+        <p>最も重要なトップページのデザインを先行してご確認いただき、以降5ページの基準とします。</p>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <span class="t-day">DAY 5〜10</span>
+        <h4>全ページデザイン＋コーディング</h4>
+        <p>サービス、プロフィール、会社概要、お問い合わせ（完了画面）、プライバシーポリシーを制作。並行してスマホ対応も実装します。</p>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <span class="t-day">DAY 11〜14</span>
+        <h4>調整・最終確認・納品</h4>
+        <p>表示崩れやレスポンシブの最終チェックを行い、HTML／CSS／画像一式とFigmaデータをzipにてお渡しします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLOSING ================= -->
+<section class="closing">
+  <div class="container">
+    <div class="section-label">04 ／ NEXT STEP</div>
+    <h2>信頼されるデザインは、<br>信頼できる進め方から生まれると考えています。</h2>
+    <p class="sub">
+      自己紹介と過去の制作実績を添えてご連絡いたします。ご不明点やご相談があれば、
+      いつでもお気軽にお問い合わせください。
+    </p>
+    <a href="#" class="cta-btn">Kairos に問い合わせる ／ 提案を見る</a>
+  </div>
+</section>
+
+<footer>
+  <strong>Kairos</strong> — Web制作・システム開発チーム ｜ ぞのタウン様への提案書
+</footer>
+
+</body>
+</html>
